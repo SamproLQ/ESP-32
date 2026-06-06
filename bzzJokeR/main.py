@@ -21,30 +21,32 @@ buzzer = PWM(Pin(14), freq=1000, duty=0)
 print("Esperando mensajes...")
 
 while True:
-    host, msg = e.recv(timeout_ms=2000)  # espera 2 segundos
-    
-    if msg is None:
-        continue  # no llegó nada, sigue esperando
-
-    # Muestra el mensaje recibido y la MAC del emisor
-    if not frst:
-        print("De:", ':'.join('{:02x}'.format(b) for b in host), "Mensaje:", msg)
-        frst = True
-    else:
-        print(" \n",msg.decode(), end=" ")
+    try:
+        host, msg = e.recv(timeout_ms=2000)  # espera 2 segundos
         
-    if msg == b"ON":
-        buzzer.duty(1000)
-        led.value(1)
-    if msg == b"OFF":
+        if msg is None:
+            continue  # no llegó nada, sigue esperando
+
+        # Muestra el mensaje recibido y la MAC del emisor
+        if not frst:
+            print("De:", ':'.join('{:02x}'.format(b) for b in host), "Mensaje:", msg)
+            frst = True
+        else:
+            print(" \n",msg.decode(), end=" ")
+            
+        if msg == b"ON":
+            buzzer.duty(1000)
+            led.value(1)
+        if msg == b"OFF":
+            buzzer.duty(0)
+            led.value(0)
+        if msg == b"hgh":
+            buzzer.freq(freqs[0])
+        if msg == b"low":
+            buzzer.freq(freqs[1])
+    except:
         buzzer.duty(0)
         led.value(0)
-    if msg == b"hgh":
-        buzzer.freq(freqs[0])
-    if msg == b"low":
-        buzzer.freq(freqs[1])
-        
-    
 
     # Si llega el mensaje de finalización, rompe el bucle
     if msg == b'end':
