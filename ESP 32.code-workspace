@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "serial:/COM5",
+			"uri": "serial://com5/"
+		},
+		{
+			"name": "buzzer",
+			"path": "buzzer"
+		},
+		{
+			"name": "bzzJokeE",
+			"path": "bzzJokeE"
+		}
+	],
+	"settings": {}
+}

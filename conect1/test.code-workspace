@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": "../../PlatformIO/Projects/test"
+		},
+		{
+			"name": "testt",
+			"path": "../../PlatformIO/Projects/testt"
+		},
+		{
+			"name": "test",
+			"path": "../test"
+		},
+		{
+			"name": "serial:/COM5",
+			"uri": "serial://com5/"
+		},
+		{
+			"name": "test2",
+			"path": "../test2"
+		},
+		{
+			"name": "mac",
+			"path": "../mac"
+		},
+		{
+			"name": "conect1",
+			"path": "."
+		},
+		{
+			"name": "contec1R",
+			"path": "../contec1R"
+		}
+	],
+	"settings": {}
+}
